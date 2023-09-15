@@ -17,7 +17,7 @@ import PlayLists from "./pages/PlayLists";
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
-  const [isLogined, setIsLogined] = useState(true);
+  const [isLogined, setIsLogined] = useState(false);
 
   if (!isLogined) {
     return <Login setIsLogined={setIsLogined} />;
