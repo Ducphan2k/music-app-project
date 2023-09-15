@@ -12,7 +12,6 @@ node_modules
 dist
 dist-ssr
 *.local
-src/redux/services
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

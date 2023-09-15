@@ -27,7 +27,7 @@ const TopChartCard = ({
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
       <img
-        className="w-20 h-20 rounded-lg"
+        className="w-10 h-10 rounded-lg"
         src={song?.images?.coverart}
         alt={song?.title}
       />
@@ -60,7 +60,7 @@ const TopPlay = () => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
   });
 
-  const topPlays = data?.tracks.slice(0, 5);
+  const topPlays = data?.slice(0, 5);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -99,7 +99,7 @@ const TopPlay = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col mt-0">
+      <div className="w-full flex flex-col mt-8">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
           <Link to="/top-artists">
@@ -116,15 +116,15 @@ const TopPlay = () => {
           modules={[FreeMode]}
           className="mt-4"
         >
-          {topPlays?.map((song, i) => (
+          {topPlays?.slice(0, 5).map((artist) => (
             <SwiperSlide
-              key={song?.key}
-              style={{ width: "25%", height: "auto" }}
+              key={artist?.key}
+              style={{ width: "20%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
-              <Link to={`/artists/${song?.artists[0].adamid}`}>
+              <Link to={`/artists/${artist?.artists[0].adamid}`}>
                 <img
-                  src={song?.images?.background}
+                  src={artist?.images?.background}
                   alt="Name"
                   className="rounded-full w-full object-cover"
                 />
